@@ -61,7 +61,68 @@ namespace RestaurantApp_Team_25_26_27
         // คน A รับผิดชอบ
         static void AddRestaurant()
         {
-            Console.WriteLine("Not completed");
+            // รายการร้านอาหารที่สามารถเลือกได้
+            List<Restaurant> availableRestaurants = new List<Restaurant>
+    {
+        new Restaurant { Name = "Open The doorrrr", Type = "Fast Food", Rating = 4.2 },
+        new Restaurant { Name = "MonkeyPig", Type = "Suki", Rating = 4.7 },
+        new Restaurant { Name = "JaiAndi", Type = "Dessert", Rating = 4.2 },
+        new Restaurant { Name = "chikGadoow", Type = "Japanese", Rating = 4.8 },
+        new Restaurant { Name = "PigBin", Type = "Drink", Rating = 4.8 },
+        new Restaurant { Name = "Mala JIng", Type = "Chinese Food", Rating = 4.5 }
+    };
+
+
+            Console.WriteLine("\n===== Add Restaurant =====");
+            Console.WriteLine("Select Restaurant:");
+
+
+            // แสดงรายการร้านอาหาร
+            for (int i = 0; i < availableRestaurants.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {availableRestaurants[i].Name} | " +
+                    $"{availableRestaurants[i].Type} | Rating: {availableRestaurants[i].Rating}");
+            }
+
+
+            Console.WriteLine("0. Back to Menu");
+            Console.Write("Select Restaurant: ");
+
+
+            int choice;
+
+
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Invalid Selection!");
+                return;
+            }
+
+
+            if (choice == 0)
+            {
+                return;
+            }
+
+
+            if (choice < 1 || choice > availableRestaurants.Count)
+            {
+                Console.WriteLine("Invalid Selection!");
+                return;
+            }
+
+
+            // เลือกร้านอาหารและเพิ่มเข้า List
+            Restaurant selectedRestaurant = availableRestaurants[choice - 1];
+
+
+            restaurants.Add(selectedRestaurant);
+
+
+            Console.WriteLine("\nRestaurant added successfully!");
+            Console.WriteLine("Name: " + selectedRestaurant.Name);
+            Console.WriteLine("Type: " + selectedRestaurant.Type);
+            Console.WriteLine("Rating: " + selectedRestaurant.Rating);
         }
 
         // คน B รับผิดชอบ
