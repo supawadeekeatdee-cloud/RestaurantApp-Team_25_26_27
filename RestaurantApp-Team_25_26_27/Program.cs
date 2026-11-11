@@ -17,11 +17,20 @@ namespace RestaurantApp_Team_25_26_27
     internal class Program
     {
         static List<Restaurant> restaurants = new List<Restaurant>
-        {
-            new Restaurant { Name = "Open The doorrrr", Type = "Fast Food", Rating = 4.2 },
-            new Restaurant { Name = "Mo", Type = "Suki", Rating = 4.7 },
-            new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
-        };
+
+
+    {
+        new Restaurant { Name = "Open The doorrrr", Type = "Fast Food", Rating = 4.2 },
+    new Restaurant { Name = "MonkeyPig", Type = "Suki", Rating = 4.7 },
+    new Restaurant { Name = "JaiAndi", Type = "Dessert", Rating = 4.2 },
+    new Restaurant { Name = "chikGadoow", Type = "Japanese", Rating = 4.8 },
+    new Restaurant { Name = "PigBin", Type = "Drink", Rating = 4.8 },
+    new Restaurant { Name = "Mala JIng", Type = "Chinese Food", Rating = 4.5 },
+    new Restaurant { Name = "Mo", Type = "Suki", Rating = 4.7 },
+    new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+    };
+
+
 
         static void Main(string[] args)
         {
@@ -56,6 +65,7 @@ namespace RestaurantApp_Team_25_26_27
             }
         }
 
+
         // คน A รับผิดชอบ
         static void AddRestaurant()
         {
@@ -65,7 +75,18 @@ namespace RestaurantApp_Team_25_26_27
         // คน B รับผิดชอบ
         static void ShowGoodRating()
         {
-            Console.WriteLine("Not completed");
+            Console.WriteLine("\n=== Restaurants Rating 4.5 Up ===");
+
+            foreach (var r in restaurants)
+            {
+                if (r.Rating >= 4.5)
+                {
+                    Console.WriteLine($"Name: {r.Name}");
+                    Console.WriteLine($"Type: {r.Type}");
+                    Console.WriteLine($"Rating: {r.Rating:F1}");
+                    Console.WriteLine("----------------------");
+                }
+            }
         }
 
         // คน C รับผิดชอบ
